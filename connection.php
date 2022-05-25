@@ -1,7 +1,8 @@
 <?php
 
 //EDIT Your Database name, Username and Password here
-$servername = "localhost:3308";
+// $servername = "localhost:3308";
+$servername = "localhost";
 $username   = "root";
 $password   = "";
 $dbname     = "lims";
