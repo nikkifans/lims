@@ -174,8 +174,8 @@ tr:nth-child(even) {
 <!-- Tab 5-->
   <!-- <div role="tabpanel" class="tab-pane" id="tab5"> -->
 <?php
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-$client_id = $_POST["client_id"];
+if($_SERVER["REQUEST_METHOD"] == "GET"){
+$client_id = $_GET["client_id"];
 
 }
 $sql = "SELECT * FROM payment where client_id='$client_id'";

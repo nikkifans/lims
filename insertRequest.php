@@ -117,7 +117,7 @@ if(!empty($_FILES["fileToUpload"]["name"] && !empty($_FILES["fileToUpload"]["tmp
             $destination_path = getcwd().DIRECTORY_SEPARATOR;
             $target_path = $destination_path .'reciptes/'. $policy_no.".".$imageFileType;
 //    @move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_path);
-           
+           $target_path2 = 'reciptes/'. $policy_no.".".$imageFileType;
 
 
             if (@move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_path)) {         
@@ -132,10 +132,10 @@ else{
  
 }
  
-$sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$uploadedImage')";
+$sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$target_path2')";
 	
 	if ($conn->query($sql) === true) {
-        echo '</br>';echo "3 New Request ADDED";  echo '</br>';
+        echo '</br>';echo "New Request ADDED";  echo '</br>';
 		}
         else
         {

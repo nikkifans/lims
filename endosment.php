@@ -177,8 +177,8 @@ tr:nth-child(even) {
 <!-- Tab 1 -->
   <div role="tabpanel" class="tab-pane active" id="home">
   <?php
-		if($_SERVER["REQUEST_METHOD"] == "POST"){
-    	$client_id = $_POST["client_id"];
+		if($_SERVER["REQUEST_METHOD"] == "GET"){
+    	$client_id = $_GET["client_id"];
 		}
 	
 		
@@ -376,7 +376,7 @@ while($row = $result->fetch_assoc()) {
   echo "    <td>".$row["recipt_no"]."</td>\n";
   echo "    <td>".$row["client_id"]."</td>\n";
   // echo "    <td>".$row["month"]."</td>\n";
-  echo "    <td>".$row["start date"]."</td>\n";
+  echo "    <td>".$row["start_date"]."</td>\n";
   echo "    <td>".$row["amount"]."</td>\n";
   echo "    <td>".$row["due"]."</td>\n";
   echo "    <td>".$row["fine"]."</td>\n";

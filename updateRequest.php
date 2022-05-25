@@ -148,11 +148,8 @@ include'connection.php';
                         break;
         }
 
-        // $test = "UPDATE client SET $requestType = '$requestData'" 
+        $sql .= " where client_id = '$client_id'";
 
-//        $sql = "select * from request WHERE client_id = '$client_id'";
-//        print $sql;
-//
 
         if ($conn->query($sql) === true) {
 			 echo "New record updated successfully";
