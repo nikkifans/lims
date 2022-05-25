@@ -75,11 +75,13 @@ if(isset($_SESSION["username"])){
 	
 }
 
-
+.logo{
+  height: 80px;
+}
 </style>
 <title>Login Page</title>
 </head>
-<img class="imgs" src="loginLogo.png" alt="Login Logo">
+<img class="imgs logo"  src="loginLogo.png" alt="Login Logo">
 <div class="container">
 	<div class="login-page">
 	  <div class="form">
