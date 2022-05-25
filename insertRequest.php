@@ -74,7 +74,8 @@ tr:nth-child(even) {
                     <div class="col-md-12">
                         <h1 class="page-head-line">Add New Request
 						<button class="btn" style="text-align:center"> 
-                        <!-- <a href="addclient.php" class="btn">Add Client</a> -->
+                        <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout">Logout</a>
+
                         </button>
 						</h1>         
                         
@@ -85,50 +86,62 @@ tr:nth-child(even) {
 	    $request= $_POST["request"];
 		$change_to = $_POST["change_to"];
         $policy_no = $_POST["policy_no"];
-        $status = 'pending';
+        $status = 'pending';  
+        $uploadedImage;         
         // lims/reciptes/
 //here
-$target_dir = "/lims/reciptes/";
-//$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-    $destination_path = getcwd().DIRECTORY_SEPARATOR;
-    $target_path = $destination_path .'reciptes/'. basename( $_FILES["fileToUpload"]["name"]);
+if(!empty($_FILES["fileToUpload"]["name"] && !empty($_FILES["fileToUpload"]["tmp_name"])))
+{
+        $uploadedImage =  "/lims/reciptes/".basename($_FILES["fileToUpload"]["name"]);
+		$target_dir = "/lims/reciptes/";
+		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+		$uploadOk = 1;
+		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+		// Check if image file is a act
+			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			if($check !== false) {
+				echo "Image Uploaded Successfully- " . $check["mime"] . "."; echo '</br>';
+				$uploadOk = 1;
+			} else {
+				echo "File is not an image."; echo '</br>';
+				$uploadOk = 0;
+			}
+		
+		// Check file size
+		$uploadOk == 1;
+		// Check if $uploadOk is set to 0 by an error
+		if ($uploadOk == 0) {
+			echo "Sorry, your file was not uploaded.";  echo '</br>';
+		// if everything is ok, try to upload file
+		} else {
+            $destination_path = getcwd().DIRECTORY_SEPARATOR;
+            $target_path = $destination_path .'reciptes/'. $policy_no.".".$imageFileType;
 //    @move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_path);
+           
 
-    if (@move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_path)) {         
-        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
+
+            if (@move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_path)) {         
+                echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }			 
+		}
 }
-
-//here
-	$sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$target_path')";
+else{
+    $uploadedImage ='';
+ 
+}
+ 
+$sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$uploadedImage')";
 	
 	if ($conn->query($sql) === true) {
         echo '</br>';echo "3 New Request ADDED";  echo '</br>';
-		} else {
-			echo "Error: " . $sql . "<br>" . $conn->error;  echo '</br>';
 		}
+        else
+        {
+		  echo "Error: " . $sql . "<br>" . $conn->error;  echo '</br>';
+		}
+	
 	
 ?>
 

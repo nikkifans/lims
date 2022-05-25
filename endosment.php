@@ -209,8 +209,8 @@ tr:nth-child(even) {
 			echo "<input disabled type=\"text\" client_id=\"fname\" name=\"birth_date\" placeholder=\"Your Birth Date..\" value=\"$row[birth_date]\">";
 			echo "<label for=\"fname\">MARITIAL STATUS</label>";
 			echo "<input disabled type=\"text\" client_id=\"fname\" name=\"marital_status\" placeholder=\"Your Maritial Status..\" value=\"$row[marital_status]\">";
-			echo "<label for=\"fname\">EMAIL ID</label>";
-			echo "<input disabled type=\"text\" client_id=\"fname\" name=\"nid\" placeholder=\"Your NID..\" value=\"$row[email_id]\">";
+			// echo "<label for=\"fname\">EMAIL ID</label>";
+			// echo "<input disabled type=\"text\" client_id=\"fname\" name=\"nid\" placeholder=\"Your NID..\" value=\"$row[email_id]\">";
 			echo "<label for=\"fname\">PHONE</label>";
 			echo "<input disabled type=\"text\" client_id=\"fname\" name=\"phone\" placeholder=\"Your Phone..\" value=\"$row[phone]\">";
 			echo "<label for=\"fname\">ADDRESS</label>";
@@ -376,9 +376,9 @@ while($row = $result->fetch_assoc()) {
   echo "    <td>".$row["recipt_no"]."</td>\n";
   echo "    <td>".$row["client_id"]."</td>\n";
   // echo "    <td>".$row["month"]."</td>\n";
-  echo "    <td>".$row["start_date"]."</td>\n";
+  echo "    <td>".$row["start date"]."</td>\n";
   echo "    <td>".$row["amount"]."</td>\n";
-  echo "    <td>".$row["expiry_date"]."</td>\n";
+  echo "    <td>".$row["due"]."</td>\n";
   echo "    <td>".$row["fine"]."</td>\n";
   echo "  </tr>";
   
@@ -426,7 +426,7 @@ echo "</table>\n";
 					<input type="text" id="Change to" name="change_to">
 			
 					<!-- <input type="submit" value="Submit"> -->
-          <input type="submit" value="Upload Image" name="submit">
+          <input type="submit" value="Submit" name="submit">
         </form>
         </div>
 </div>

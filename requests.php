@@ -117,10 +117,13 @@ include'connection.php';
 //        echo $row['image'];
         // echo "    <td>".$row["image"]."</td>\n";
 //        echo $row["request_type"];
-        if ($row["request_type"] == 'policy extension'){
-          
-            echo "<td>"."<a href='download.php?img=".$row['image']."'>Download</a>"."</td>\n";
-        }else{
+        if ($row["request_type"] == 'policy extension')
+        {
+            echo "<td>"."<a href='download.php?path=".$row['image']."'>Download</a>"."</td>\n";
+            //  echo "<td>"."<a href= 'C:\xampp\htdocs\lims\reciptes\payment-receipt-template-05.jpg'".$row['image']."'>Download</a>"."</td>\n";
+        }
+        else
+        {
 
             echo "<td disabled>-</td>\n";
         }

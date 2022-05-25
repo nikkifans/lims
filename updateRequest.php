@@ -68,8 +68,7 @@ tr:nth-child(even) {
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
-<?php include 'header.php'; 
-?>
+<?php include 'header.php';?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             
@@ -144,6 +143,9 @@ include'connection.php';
                  case 'nominee aadhar':
                     $sql.="nominee SET aadharr_number = '$requestData'";
                     break;
+                case 'policy extension':
+                        $sql.="client SET shared_location = '$requestData'";
+                        break;
         }
 
         // $test = "UPDATE client SET $requestType = '$requestData'" 
@@ -153,10 +155,12 @@ include'connection.php';
 //
 
         if ($conn->query($sql) === true) {
-			echo "New record updated successfully";
+			 echo "New record updated successfully";
             $sql = "UPDATE request set status = 'completed'  where request_id='$request_id'";
             if($conn->query($sql)=== true){
-                header('Location: requests.php');
+                //header('Location: requests.php');
+                echo "<br />";
+                echo "Go back to Requests - <a href='requests.php' class='btn'>Requests</a>";
             }
         
 		} else {

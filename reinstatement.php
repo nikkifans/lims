@@ -257,6 +257,9 @@ echo "</table>\n";
                 $due_amount = $row['due_amount'];
             
 //
+            }else{
+              $due_date =  "NA";
+              $due_amount = "NA";
             }
 
             ?>
