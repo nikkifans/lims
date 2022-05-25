@@ -119,7 +119,7 @@ include'connection.php';
 //        echo $row["request_type"];
         if ($row["request_type"] == 'policy extension')
         {
-            echo "<td>"."<a href='download.php?path=".$row['image']."'>Download</a>"."</td>\n";
+            echo "<td>"."<a href='download.php?path=".$row['image']."'>View</a>"."</td>\n";
             //  echo "<td>"."<a href= 'C:\xampp\htdocs\lims\reciptes\payment-receipt-template-05.jpg'".$row['image']."'>Download</a>"."</td>\n";
         }
         else

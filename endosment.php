@@ -399,8 +399,8 @@ echo "</table>\n";
 					<input type="hidden" id="policyno" name="policy_no" value="<?php echo $_SESSION['policyno'] ?>">
         <label for="Request Type">Choose your Request:</label>
 					<select name="request" id="request">
-						<option value="marital status">Change Marital Status</option>
-						<option value="email id">Email ID</option>
+						<option value="marital status">Marital Status</option>
+						<!-- <option value="email id">Email ID</option> -->
 						<option value="phone">Phone</option>
 						<option value="address">Address</option>
 						<option value="nominee name">Nominee Name</option>
@@ -409,7 +409,7 @@ echo "</table>\n";
 						<option value="nominee relationship">Nominee Relationship</option>
 						<option value="nominee priority">Nominee Priority</option>
 						<option value="nominee phone">Nominee Phone</option>
-            <option value="nominee aadhar">Nominee Aadhar</option>
+            <!-- <option value="nominee aadhar">Nominee Aadhar</option> -->
             <option value="policy extension">Policy Extension(Please Enter No. of months below)</option>
 					</select>
           <br />
