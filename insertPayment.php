@@ -91,7 +91,7 @@ include'connection.php';
 		$agent_id       = $_POST["agent_id"];
 		
 		
-	$sql = "INSERT INTO payment (`recipt_no`, `client_id`, `start date`, `amount`, `fine`, `expiry date`, `agent_id`)"."VALUES('$recipt_no', '$client_id', '$month', '$amount', '$fine', '$due','$agent_id')";
+	$sql = "INSERT INTO payment (`recipt_no`, `client_id`, `start_date`, `amount`, `fine`, `expiry_date`, `agent_id`)"."VALUES('$recipt_no', '$client_id', '$month', '$amount', '$fine', '$due','$agent_id')";
 	
 	if ($conn->query($sql) === true) {
 			echo "New Payment ADDED";
