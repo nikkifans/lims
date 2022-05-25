@@ -74,7 +74,8 @@ tr:nth-child(even) {
                     <div class="col-md-12">
                         <h1 class="page-head-line">Insert Member
 						<button class="btn" align="center"> 
-                        <a href="addPayment.php" class="btn">Add Member</a>
+                        <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout">Logout</a>
+
                         </button>
 						</h1>
                     
