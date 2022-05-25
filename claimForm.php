@@ -240,8 +240,8 @@ tr:nth-child(even) {
 				$sql = "SELECT policy_id,term,health_status,system,payment_method,coverage, age_limit FROM policy where policy_id ='$policy_id'";
 				$result = $conn->query($sql);
         echo "<br>";
-        echo '<h5>Policy Information</h5>';
-        echo "<br>";
+        echo '<h2>Policy Information</h2>';
+        // echo "<br>";
         echo "<br>";
 				echo "<table class=\"table\">\n";
 				echo "  <tr>\n";
@@ -282,10 +282,10 @@ tr:nth-child(even) {
     
         <!-- /. PAGE WRAPPER  -->       	
 	<div class="wrapper">     
+    <!-- <br>
     <br>
     <br>
-    <br>
-    <br>
+    <br> -->
    <div class="row">
      <div class="col-md-6"> 
      <div class="col-md-12">
