@@ -295,45 +295,45 @@ tr:nth-child(even) {
             <p><strong>Diagnostics Services:</strong></p>
             <input type="hidden" name="policy_id" value="<?php echo $client_id ?>">
             <input type="hidden" name="total_amount" value="0" id="h-total-amount">
-            <input type="checkbox" data-name="X-ray" data-amount="100" name="x_ray" value="100" id="xray"/> <label class="mx-3" for="xray">X-ray</label>        
-            <input type="checkbox" data-name="MRI-scan" data-amount="150" name="mri_scan" value="150" id="mri_scan"/> <label class="mx-3" for="mri_scan">MRI-scan</label>        
-            <input type="checkbox" data-name="ct_scan" data-amount="200" name="ct_scan" value="200" id="ct_scan"/> <label class="mx-3" for="ct_scan">CT-scan</label>        
-            <input type="checkbox" data-name="ultra_sound" data-amount="250" name="ultra_sound" value="250" id="ultra_sound"/> <label class="mx-3" for="ultra_sound">Ultra-Sound</label>
+            <input type="checkbox" data-name="X-ray" data-amount="300" name="x_ray" value="300" id="xray"/> <label class="mx-3" for="xray">X-ray</label>        
+            <input type="checkbox" data-name="MRI-scan" data-amount="6000" name="mri_scan" value="6000" id="mri_scan"/> <label class="mx-3" for="mri_scan">MRI-scan</label>        
+            <input type="checkbox" data-name="ct_scan" data-amount="3000" name="ct_scan" value="3000" id="ct_scan"/> <label class="mx-3" for="ct_scan">CT-scan</label>        
+            <input type="checkbox" data-name="ultra_sound" data-amount="1250" name="ultra_sound" value="1250" id="ultra_sound"/> <label class="mx-3" for="ultra_sound">Ultra-Sound</label>
         </li>
         <br>
         <li>
             <p><strong>Emergency:</strong></p>
         
-            <input type="checkbox" data-name="heartattack" data-amount="250" name="heartattack" value="250" id="heartattack"/> <label class="mx-3" for="heartattack">Heart Attack</label>
+            <input type="checkbox" data-name="heartattack" data-amount="20000" name="heartattack" value="20000" id="heartattack"/> <label class="mx-3" for="heartattack">Heart Attack</label>
 
         
-            <input type="checkbox" data-name="brainstroke" data-amount="300" name="brainstroke" value="300" id="brainstroke"/> <label class="mx-3" for="brainstroke">Brain Stroke</label>
+            <input type="checkbox" data-name="brainstroke" data-amount="20000" name="brainstroke" value="20000" id="brainstroke"/> <label class="mx-3" for="brainstroke">Brain Stroke</label>
 
         
-            <input type="checkbox" data-name="accident" data-amount="350" name="accident" value="350" id="accident"/> <label class="mx-3" for="accident">Accident</label>
+            <input type="checkbox" data-name="accident" data-amount="15000" name="accident" value="15000" id="accident"/> <label class="mx-3" for="accident">Accident</label>
 
         </li>
         <br>
 		<li>
             <p><strong>General:</strong></p>
         
-            <input type="checkbox" data-name="cuts" data-amount="400" name="cuts" value="400" id="cuts"/> <label class="mx-3" for="cuts">Cuts</label>
+            <input type="checkbox" data-name="cuts" data-amount="1400" name="cuts" value="1400" id="cuts"/> <label class="mx-3" for="cuts">Cuts</label>
 
         
-            <input type="checkbox" data-name="Consultancy" data-amount="450" name="Consultancy" value="450" id="Consultancy"/> <label class="mx-3" for="Consultancy">Consultancy</label>
+            <input type="checkbox" data-name="Consultancy" data-amount="500" name="Consultancy" value="500" id="Consultancy"/> <label class="mx-3" for="Consultancy">Consultancy</label>
 
         
-            <input type="checkbox" data-name="burns" data-amount="500" name="burns" value="500" id="burns"/> <label class="mx-3" for="burns">Burns</label>
+            <input type="checkbox" data-name="burns" data-amount="1500" name="burns" value="1500" id="burns"/> <label class="mx-3" for="burns">Burns</label>
 
 
-            <input type="checkbox" data-name="Fractures" data-amount="550" name="Fractures" value="550" id="Fractures"/> <label class="mx-3" for="Fractures">Fractures</label>
+            <input type="checkbox" data-name="Fractures" data-amount="3550" name="Fractures" value="3550" id="Fractures"/> <label class="mx-3" for="Fractures">Fractures</label>
 
         </li>
         <br>
 		<li>
             <p><strong>Maternity:</strong></p>
         
-            <input type="checkbox" data-name="maternity" data-amount="600" name="maternity" value="600" id="maternity"/> <label class="mx-3" for="maternity">Maternity</label>
+            <input type="checkbox" data-name="maternity" data-amount="35000" name="maternity" value="35000" id="maternity"/> <label class="mx-3" for="maternity">Maternity</label>
         </li>
         <br>	      
     </ul>
