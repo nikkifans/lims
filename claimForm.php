@@ -237,7 +237,7 @@ tr:nth-child(even) {
 <!-- Tab 2 -->
   <div role="tabpanel" class="tab-pane" id="profile">
 		<?php
-				$sql = "SELECT policy_id,term,health_status,system,payment_method,coverage, age_limit FROM policy where policy_id ='$policy_id'";
+				$sql = "SELECT * FROM plan where policy_id ='$policy_id'";
 				$result = $conn->query($sql);
         echo "<br>";
         echo '<h2>Policy Information</h2>';
@@ -246,12 +246,11 @@ tr:nth-child(even) {
 				echo "<table class=\"table\">\n";
 				echo "  <tr>\n";
 				echo "    <th>POLICY ID</th>\n";
-				echo "    <th>TERM</th>\n";
+				echo "    <th>SUM INSURED</th>\n";
+				echo "    <th>PLAN TYPE</th>\n";
+				echo "    <th>PLAN AMOUNT</th>\n";
 				echo "    <th>TOTAL AMOUNT</th>\n";
-				echo "    <th>PER MONTH</th>\n";
-				echo "    <th>PAYMENT METHOD</th>\n";
-				echo "    <th>COVERAGE</th>\n";
-				echo "    <th>AGE LIMIT</th>\n";
+			 
 				echo "  </tr>";
 						
 				if ($result->num_rows > 0) {
@@ -260,12 +259,11 @@ tr:nth-child(even) {
 					
 					echo "<tr>\n";
 					echo "    <td>".$row["policy_id"]."</td>\n";
-					echo "    <td>".$row["term"]."</td>\n";
-					echo "    <td>".$row["health_status"]."</td>\n";
-					echo "    <td>".$row["system"]."</td>\n";
-					echo "    <td>".$row["payment_method"]."</td>\n";
-					echo "    <td>".$row["coverage"]."</td>\n";
-					echo "    <td>".$row["age_limit"]."</td>\n";
+					echo "    <td>".$row["sum_insured"]."</td>\n";
+					echo "    <td>".$row["plan_type"]."</td>\n";
+					echo "    <td>".$row["plan_amount"]."</td>\n";
+					echo "    <td>".$row["total_amount"]."</td>\n";
+				 
 					echo "    </tr>";
 					
 				  }
