@@ -101,7 +101,7 @@ tr:nth-child(even) {
   <div role="tabpanel" class="tab-pane active" id="pending">
   <?php
 
-$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='pending'";
+$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id LEFT JOIN `plan` ON services.policy_number = plan.policy_id where services.status='pending'";
 $result = $conn->query($sql);
 
 echo "<table class=\"table\">\n";
@@ -124,7 +124,7 @@ while($row = $result->fetch_assoc())
     echo "<tr>\n";
     echo "    <td>".$row["id"]."</td>\n";
     echo "    <td>".$row["policy_number"]."</td>\n";
-    echo "    <td> - </td>\n";
+    echo "    <td>".$row["plan_type"]."</td>\n";
     echo "    <td>".$row["name"]."</td>\n";		      
     echo "    <td>".$row["birth_date"]."</td>\n";
     echo "    <td>".$row["phone"]."</td>\n";
@@ -142,7 +142,7 @@ while($row = $result->fetch_assoc())
 <div role="tabpanel" class="tab-pane" id="approve">
 <?php
 
-	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='Approved'";
+	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id LEFT JOIN `plan` ON services.policy_number = plan.policy_id where services.status='Approved'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -168,7 +168,7 @@ while($row = $result->fetch_assoc())
 		echo "<tr>\n";
 		echo "    <td>".$row["id"]."</td>\n";
 		echo "    <td>".$row["policy_number"]."</td>\n";
-		echo "    <td> - </td>\n";
+		echo "    <td>".$row["plan_type"]."</td>\n";
         echo "    <td>".$row["name"]."</td>\n";		      
 		echo "    <td>".$row["birth_date"]."</td>\n";
 		echo "    <td>".$row["phone"]."</td>\n";
@@ -186,7 +186,7 @@ while($row = $result->fetch_assoc())
 <div role="tabpanel" class="tab-pane" id="decline">
 <?php
 
-	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='Declined'";
+	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id LEFT JOIN `plan` ON services.policy_number = plan.policy_id where services.status='Declined'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -212,7 +212,7 @@ while($row = $result->fetch_assoc())
 		echo "<tr>\n";
 		echo "    <td>".$row["id"]."</td>\n";
 		echo "    <td>".$row["policy_number"]."</td>\n";
-		echo "    <td> - </td>\n";
+		echo "    <td>".$row["plan_type"]."</td>\n";
         echo "    <td>".$row["name"]."</td>\n";		      
 		echo "    <td>".$row["birth_date"]."</td>\n";
 		echo "    <td>".$row["phone"]."</td>\n";
