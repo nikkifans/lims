@@ -87,7 +87,7 @@ tr:nth-child(even) {
 		$change_to = $_POST["change_to"];
         $policy_no = $_POST["policy_no"];
         $status = 'pending';  
-        $uploadedImage;       
+        $uploadedImage;      
         // lims/reciptes/
 //here
 if(!empty($_FILES["fileToUpload"]["name"] && !empty($_FILES["fileToUpload"]["tmp_name"])))
@@ -125,10 +125,10 @@ if(!empty($_FILES["fileToUpload"]["name"] && !empty($_FILES["fileToUpload"]["tmp
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }	
-            		 
+            $sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$target_path2')";	 
 		}
 
-$sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$target_path2')";
+        //$sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$target_path2')";
     }
 else
 {
