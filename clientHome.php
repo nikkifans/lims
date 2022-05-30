@@ -151,7 +151,7 @@ tr:nth-child(even) {
 
                     <div class="col-md-4">
                         <div class="main-box mb-red">
-                            <a href="search_claim.php?client_id=<?php echo $_SESSION["username"] ?>">
+                            <a href="search_claim.php">
                                 <i class="fa fa-user fa-5x"></i>
 								
                                 <h5>

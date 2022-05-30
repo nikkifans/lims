@@ -31,7 +31,29 @@
 			header("Location: policy_servicing.php");
 		}
     }
+
+	$sql = "SELECT `password` from hospital_login where username='$username' and type='user'";
+	$result = $conn->query($sql);        
+
+    while($row = $result->fetch_assoc()) {
+		if($password == $row["password"]){
+			echo "welcome you have successfully logeed in";
+			$_SESSION["username"] = $username;		
+			header("Location: clientHome.php");
+		}
+    }
 	
+	// claims admin login
+	$sql = "SELECT `password` from hospital_login where username='$username' and type='claimsadmin'";
+	$result = $conn->query($sql);        
+
+    while($row = $result->fetch_assoc()) {
+		if($password == $row["password"]){
+			echo "welcome you have successfully logeed in";
+			$_SESSION["username"] = $username;		
+			header("Location: claimsHome.php");
+		}
+    }
 	if(!isset($_SESSION["username"])){
 		header("Location: index.php");
 	}

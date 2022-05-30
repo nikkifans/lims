@@ -117,7 +117,7 @@ tr:nth-child(even) {
 						</h1>
 						
 						<div class= "searchBar">
-		  <form action="claimForm.php" method="post">
+		  <form action="claimForm.php" method="get">
           <input type="text" name="client_id"><br>
           <input class="searchBtn" type="submit" value="SEARCH" >
 		  </br>
