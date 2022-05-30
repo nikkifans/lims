@@ -72,25 +72,39 @@ tr:nth-child(even) {
 </head>
 <body>
 <?php include 'header.php'; 
+        $client_id;
+    	if($_SERVER["REQUEST_METHOD"] == "GET"){
+            if(isset($_GET["client_id"])){
+                $client_id = $_GET["client_id"];
+            }
+            
+        }
 ?>
+
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Clients Information
-                      
-						
-						
-		  
-				
-					
-				     
-						   
-						<button class="btn" align="center"> 
+                        <h1 class="page-head-line">Clients Information</h1>                      														  
+    <div class="row">
+        <div class="col-md-6">
+        <form action="" method="get">
+                            <label for="client_id">Client ID</label>
+                            <input type="text" name="client_id" id="client_id" value="<?php echo isset($client_id) && !empty($client_id) ? $client_id : '' ?>">
+                            <input class="searchBtn" type="submit" name="submit" value="SEARCH" >	
+                            <a class="btn btn-danger" href="client.php" id="reset">Reset</a>		   
+                        </form>
+        </div>
+        <div class="col-md-6">
+        <button class="btn" align="center"> 
 						<a href="addClient.php" class="btn">Add Client</a>
-						</button>
-						</h1>
+		</button>	
+        </div>
+    </div>
+                        
+				     						   
+											
                     </div>
                 </div>
 				
@@ -99,6 +113,9 @@ tr:nth-child(even) {
 <?php
 
 	$sql = "SELECT client_id,name,birth_date,nid,phone,address,agent_id FROM client";
+        if(isset($client_id) && !empty($client_id)){            
+            $sql .= " where client_id = '$client_id'";
+        }
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";

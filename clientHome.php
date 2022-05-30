@@ -126,7 +126,7 @@ tr:nth-child(even) {
                 </div>
 
 				<div class="row">
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         <div class="main-box mb-red">
                             <a href="endosment.php?client_id=<?php echo $_SESSION["username"] ?>">
                                 <i class="fa fa-user fa-5x"></i>
@@ -147,11 +147,11 @@ tr:nth-child(even) {
 								</h5>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-md-4">
                         <div class="main-box mb-red">
-                            <a href="claimForm.php?client_id=<?php echo $_SESSION["username"] ?>">
+                            <a href="search_claim.php?client_id=<?php echo $_SESSION["username"] ?>">
                                 <i class="fa fa-user fa-5x"></i>
 								
                                 <h5>
