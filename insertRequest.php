@@ -87,7 +87,7 @@ tr:nth-child(even) {
 		$change_to = $_POST["change_to"];
         $policy_no = $_POST["policy_no"];
         $status = 'pending';  
-        $uploadedImage;         
+        $uploadedImage;       
         // lims/reciptes/
 //here
 if(!empty($_FILES["fileToUpload"]["name"] && !empty($_FILES["fileToUpload"]["tmp_name"])))
@@ -124,15 +124,19 @@ if(!empty($_FILES["fileToUpload"]["name"] && !empty($_FILES["fileToUpload"]["tmp
                 echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
             } else {
                 echo "Sorry, there was an error uploading your file.";
-            }			 
+            }	
+            		 
 		}
-}
-else{
-    $uploadedImage ='';
- 
-}
- 
+
 $sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$target_path2')";
+    }
+else
+{
+    $uploadedImage ='';
+    $sql = "INSERT INTO request "."(request_type,request_data,status,policy_no)"." VALUES('$request', '$change_to','$status','$policy_no')";
+}
+ 
+
 	
 	if ($conn->query($sql) === true) {
         echo '</br>';echo "New Request ADDED";  echo '</br>';
