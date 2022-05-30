@@ -87,11 +87,62 @@ tr:nth-child(even) {
                     </div>
                 </div>
 				
-                
-                <!-- /. ROW  -->
+                <ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#pending" aria-controls="pending" role="tab" data-toggle="tab">Pending</a></li>
+  <li role="presentation"><a href="#approve" aria-controls="approve" role="tab" data-toggle="tab">Approved</a></li>
+  <li role="presentation"><a href="#decline" aria-controls="decline" role="tab" data-toggle="tab">Declined</a></li>
+  
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+<!-- Tab 1 -->
+  <div role="tabpanel" class="tab-pane active" id="pending">
+  <?php
+
+$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='pending'";
+$result = $conn->query($sql);
+
+echo "<table class=\"table\">\n";
+echo "  <tr>\n";
+echo "    <th>REQUEST NUMBER</th>\n";
+echo "    <th>POLICY NUMBER</th>\n";
+echo "    <th>POLICY TYPE</th>\n";
+echo "    <th>NAME</th>\n";
+echo "    <th>BIRTH DATE</th>\n";     
+echo "    <th>PHONE</th>\n";
+echo "    <th>ADDRESS</th>\n";    
+echo "    <th>STATUS</th>\n";
+echo "    <th>VIEW</th>\n";
+echo "  </tr>";
+
+if ($result->num_rows > 0) {
+// output data of each row
+while($row = $result->fetch_assoc()) 
+{		 
+    echo "<tr>\n";
+    echo "    <td>".$row["id"]."</td>\n";
+    echo "    <td>".$row["policy_number"]."</td>\n";
+    echo "    <td> - </td>\n";
+    echo "    <td>".$row["name"]."</td>\n";		      
+    echo "    <td>".$row["birth_date"]."</td>\n";
+    echo "    <td>".$row["phone"]."</td>\n";
+    echo "    <td>".$row["address"]."</td>\n"; 
+    echo "    <td><strong class='text-capitalize'>".$row["status"]."</strong></td>\n";                        
+    echo "    <td>"."<a href='claimDetails.php?client_id=".$row["client_id"]. "'>View</a>"."</td>\n";
+    echo "  </tr>";
+     
+ }
+ }
+ echo "  </table>";
+?>
+</div>
+<!-- Tab 2 -->
+<div role="tabpanel" class="tab-pane" id="approve">
 <?php
 
-	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id";
+	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='Approved'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -124,11 +175,60 @@ tr:nth-child(even) {
         echo "    <td>".$row["address"]."</td>\n"; 
         echo "    <td><strong class='text-capitalize'>".$row["status"]."</strong></td>\n";                        
 		echo "    <td>"."<a href='claimDetails.php?client_id=".$row["client_id"]. "'>View</a>"."</td>\n";
-        
+        echo "  </tr>";
          
 	 }
 	 }
+     echo "  </table>";
 ?>
+</div>
+<!-- Tab 3 -->
+<div role="tabpanel" class="tab-pane" id="decline">
+<?php
+
+	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='Declined'";
+	$result = $conn->query($sql);
+	
+	echo "<table class=\"table\">\n";
+    echo "  <tr>\n";
+    echo "    <th>REQUEST NUMBER</th>\n";
+    echo "    <th>POLICY NUMBER</th>\n";
+    echo "    <th>POLICY TYPE</th>\n";
+    echo "    <th>NAME</th>\n";
+    echo "    <th>BIRTH DATE</th>\n";     
+    echo "    <th>PHONE</th>\n";
+	echo "    <th>ADDRESS</th>\n";    
+	echo "    <th>STATUS</th>\n";
+    echo "    <th>VIEW</th>\n";
+    
+    
+	
+    echo "  </tr>";
+	
+	if ($result->num_rows > 0) {
+    // output data of each row
+	while($row = $result->fetch_assoc()) 
+    {		 
+		echo "<tr>\n";
+		echo "    <td>".$row["id"]."</td>\n";
+		echo "    <td>".$row["policy_number"]."</td>\n";
+		echo "    <td> - </td>\n";
+        echo "    <td>".$row["name"]."</td>\n";		      
+		echo "    <td>".$row["birth_date"]."</td>\n";
+		echo "    <td>".$row["phone"]."</td>\n";
+        echo "    <td>".$row["address"]."</td>\n"; 
+        echo "    <td><strong class='text-capitalize'>".$row["status"]."</strong></td>\n";                        
+		echo "    <td>"."<a href='claimDetails.php?client_id=".$row["client_id"]. "'>View</a>"."</td>\n";
+        echo "  </tr>";
+         
+	 }
+	 }
+     echo "  </table>";
+?>
+</div>
+</div>
+                <!-- /. ROW  -->
+
 
             
         <!-- /. PAGE WRAPPER  -->
@@ -139,7 +239,9 @@ tr:nth-child(even) {
   
 
     
-	
+	   
+    <script src="assets/js/jquery-1.10.2.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
 </body>
 
 </html>
