@@ -98,6 +98,7 @@ include'connection.php';
 
     echo "    <th>IMAGE</th>\n";
     echo "    <th>UPDATE</th>\n";
+    echo "    <th>REJ</th>\n";
     echo "  </tr>";
 
     
@@ -132,6 +133,7 @@ include'connection.php';
 
 
         echo "<td>"."<a href='updateRequest.php?request_id=".$row["request_id"]."&client_id=".$row["policy_no"]. "'>Update</a>"."</td>\n";
+        echo "<td>"."<a href='reject.php?request_id=".$row["request_id"]."&client_id=".$row["policy_no"]. "'>reject</a>"."</td>\n";
         // echo "    <td>".$row["update"]."</td>\n";
 
 

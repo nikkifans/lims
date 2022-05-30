@@ -178,6 +178,10 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 $client_id = $_GET["client_id"];
 
 }
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $client_id = $_POST["client_id"];
+  
+  }
 $sql = "SELECT * FROM payment where client_id='$client_id'";
 $result = $conn->query($sql);
 echo "<br>\n";
