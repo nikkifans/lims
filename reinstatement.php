@@ -109,7 +109,7 @@ tr:nth-child(even) {
 	
             <div class="navbar-header">
                 	
-                <a class="navbar-brand" href="index.php">Insurance</a>
+                <a class="navbar-brand" href="requesthome.php">Insurance</a>
             </div>
 			<div class="dropdown">
 			<div class="header-left">
@@ -182,7 +182,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $client_id = $_POST["client_id"];
   
   }
-$sql = "SELECT * FROM payment where client_id='$client_id'";
+  $sql = "SELECT payment.recipt_no,payment.client_id,payment.start_date,payment.amount,payment.expiry_date,payment.fine, payment.agent_id,plan.total_amount,client.due_amount FROM `payment` left JOIN plan on payment.client_id = plan.policy_id LEFT JOIN `client` ON payment.client_id = client.client_id where payment.client_id='$client_id'";
+
 $result = $conn->query($sql);
 echo "<br>\n";
 echo "<br>\n";
@@ -193,11 +194,13 @@ echo "<table class=\"table\">\n";
   echo "  <tr>\n";
   echo "    <th>RECIPT NO</th>\n";
   echo "    <th>CLIENT ID</th>\n";
+  echo "    <th>MONTHLY PAYMENT</th>\n";
   echo "    <th>START DATE</th>\n";
-  echo "    <th>AMOUNT</th>\n";
-echo "    <th>EXPIRY DATE</th>\n";
+  echo "    <th>TOTAL AMOUNT</th>\n";
+  echo "    <th>EXPIRY DATE</th>\n";
   echo "    <th>FINE</th>\n";
-  echo "    <th>REMAINING DAYS</th>\n";
+  echo "    <th>DUE AMOUNT</th>\n";
+
   echo "  </tr>";
 
 if ($result->num_rows > 0) {
@@ -213,11 +216,13 @@ while($row = $result->fetch_assoc()) {
   echo "<tr>\n";
   echo "    <td>".$row["recipt_no"]."</td>\n";
   echo "    <td>".$row["client_id"]."</td>\n";
+  echo "    <td>".$row["total_amount"]."</td>\n";
   echo "    <td>".$row["start_date"]."</td>\n";
   echo "    <td>".$row["amount"]."</td>\n";
-  echo "    <td>".$row["expiry_date"]."</td>\n";
+  // echo "    <td>".$row["expiry_date"]."</td>\n";
   echo "    <td>".$row["fine"]."</td>\n";
   echo "    <td>".$expiry_date."</td>\n";
+  echo "    <td>".$row["due_amount"]."</td>\n";
   echo "  </tr>";
   
 }
@@ -240,15 +245,15 @@ echo "</table>\n";
 		if($username == $row["client_id"]){
 
 //            $sql1 = "SELECT  DATE_ADD('start date', INTERVAL 90 DAY) AS due_date,amount AS due_amount FROM payment WHERE  client_id = 1511986023 order by 'start date' DESC LIMIT 1";
-////            $sql1 = "SELECT * from client";
-//
+// //            $sql1 = "SELECT * from client";
+
 //            $result1 = $conn->query($sql1);
 //            while($row1 = $result1->fetch_assoc()) {
 //                echo $row1['due_date'];
 //            }
-//
+
 //            echo "testttt";
-////            echo $result1;
+// //            echo $result1;
 
             ?>
 <!--   todo   here           -->

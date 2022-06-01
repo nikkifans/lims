@@ -15,7 +15,7 @@
 		if($password == $row["agent_password"]){
 			echo "welcome you have successfully logeed in";
 			$_SESSION["username"] = $username;
-			 header("Location: home.php");
+			 header("Location: mainpage.php");
 			
 		}
     }
@@ -28,7 +28,7 @@
 		if($password == $row["client_password"]){
 			echo "welcome you have successfully logeed in";
 			$_SESSION["username"] = $username;		
-			header("Location: policy_servicing.php");
+			header("Location: requesthome.php");
 		}
     }
 
