@@ -3,15 +3,15 @@
 	include'connection.php';
 	$username = $_SESSION["username"];
 
-	$sql = "SELECT agent_id FROM agent WHERE agent_id = '$username'";
-	$result = $conn->query($sql);
-	if ($result->num_rows > 0) {
+// 	$sql = "SELECT agent_id FROM agent WHERE agent_id = '$username'";
+// 	$result = $conn->query($sql);
+// 	if ($result->num_rows > 0) {
      
-    }
-    else {
-	header("Location: clientHome.php");
+//     }
+//     else {
+// 	header("Location: clientHome.php");
     
-   }	
+//    }	
 ?>
 
 <body>

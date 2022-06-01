@@ -49,7 +49,6 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
-
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,10 +68,9 @@ tr:nth-child(even) {
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
 	
-            <div class="navbar-header" style="font-size: 120px;">
+            <div class="navbar-header">
                 	
                 <a class="navbar-brand" href="index.php">Insurance</a>
-            
             </div>
 
             <div class="header-right">
@@ -110,60 +108,31 @@ tr:nth-child(even) {
 		
 
         </nav>
-		 
-		  
-	
-   
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             
                 <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-head-line">Policy Servicing</h1>
-                    
+                    <div class="col-md-4">
+                        <h1 class="page-head-line">Search Policy  			
+						</h1>
+						
+						<div class= "searchBar">
+		  <form action="claimForm.php" method="get">
+          <input type="text" name="client_id"><br>
+          <input class="searchBtn" type="submit" value="SEARCH" >
+		  </br>
+          </form>
+	  </div>
+						
+						
+						
+                    </div>
+                </div>
                 
                 <!-- /. ROW  -->
-                </div>
 
-				<div class="row">
-                    <!-- <div class="col-md-4">
-                        <div class="main-box mb-red">
-                            <a href="endosment.php?client_id=<?php echo $_SESSION["username"] ?>">
-                                <i class="fa fa-user fa-5x"></i>
-								
-                                <h5>
-							 ENDORSEMENT FORM
-								</h5>
-                            </a>
-                        </div>
-                    </div>
-					<div class="col-md-4">
-                        <div class="main-box mb-red">
-                            <a href="reinstatement.php?client_id=<?php echo $_SESSION["username"] ?>">
-                                <i class="fa fa-user fa-5x"></i>
-								
-                                <h5>
-							  REINSTATEMENT
-								</h5>
-                            </a>
-                        </div>
-                    </div> -->
-
-                    <div class="col-md-4">
-                        <div class="main-box mb-red">
-                            <a href="search_claim.php">
-                                <i class="fa fa-user fa-5x"></i>
-								
-                                <h5>
-							  Claim Form
-								</h5>
-                            </a>
-                        </div>
-                    </div>
-
-
+            
         </div>
-	
         <!-- /. PAGE WRAPPER  -->
 
 
@@ -172,7 +141,8 @@ tr:nth-child(even) {
 
    
     
+    
 
-
+	
 </body>
 </html>

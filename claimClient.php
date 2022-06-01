@@ -72,8 +72,99 @@ tr:nth-child(even) {
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
-<?php include 'header.php'; 
+<?php
+	session_start();
+	include'connection.php';
+	$username = $_SESSION["username"];
+
+	$sql = "SELECT `username` from hospital_login where username='$username' and type='claimsadmin'";
+    
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+     
+    }
+    else {
+	header("Location: clientHome.php");
+    
+   }	
 ?>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+	
+            <div class="navbar-header">
+                	
+                <a class="navbar-brand" href="claimsHome.php">Insurance</a>
+            </div>
+
+            <div class="header-right">
+			
+                 <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout">Logout</a>
+
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <div class="user-img-div">
+                            <img src="assets/img/user.png" class="img-thumbnail" />
+
+                            <div class="inner-text">
+                                <?php
+									if(!isset($_SESSION["username"])){
+										header("Location: index.php");
+									}else {
+										echo "welcome, ".$_SESSION["username"];
+									}
+								?>
+                            <br />
+                              
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                 <li>
+                      <a href="claimHeader.php"><i class="fa fa-users "></i>CLIENTS</a >  
+                 </li> 
+                 <!-- <li>
+                      <a href="agent.php"><i class="fa fa-life-saver "></i>AGENTS</a>
+                            
+                 </li>   
+                 <li>
+                      <a href="policy.php"><i class="fa fa-pencil-square-o "></i>POLICY</a>
+                          
+                 </li>     
+                 <li>
+                      <a href="nominee.php"><i class="fa fa-heart "></i>NOMINEE</a>
+                            
+                 </li> 
+                 <li>
+                      <a href="payment.php"><i class="fa fa-credit-card "></i>PAYMENTS</a>
+                            
+                 </li>    
+                    
+                 <li>
+                      <a href="requests.php"><i class="fa fa-envelope "></i>REQUESTS</a>
+                            
+                 </li>    
+                 <li>
+                      <a href="search_reinment.php"><i class="fa fa-money "></i>REINSTATEMENT</a>
+                            
+                 </li>   -->
+                 <li>
+                      <a href="claimClient.php"><i class="fa fa-money "></i>CLAIM</a>                            
+                 </li>  
+                </ul>
+            </div>		
+        </nav>
+	
+   
+<!--  -->
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             
@@ -101,7 +192,7 @@ tr:nth-child(even) {
   <div role="tabpanel" class="tab-pane active" id="pending">
   <?php
 
-$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='pending'";
+$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id LEFT JOIN `plan` ON services.policy_number = plan.policy_id where services.status='pending'";
 $result = $conn->query($sql);
 
 echo "<table class=\"table\">\n";
@@ -124,7 +215,7 @@ while($row = $result->fetch_assoc())
     echo "<tr>\n";
     echo "    <td>".$row["id"]."</td>\n";
     echo "    <td>".$row["policy_number"]."</td>\n";
-    echo "    <td> - </td>\n";
+    echo "    <td>".$row["plan_type"]."</td>\n";
     echo "    <td>".$row["name"]."</td>\n";		      
     echo "    <td>".$row["birth_date"]."</td>\n";
     echo "    <td>".$row["phone"]."</td>\n";
@@ -142,7 +233,7 @@ while($row = $result->fetch_assoc())
 <div role="tabpanel" class="tab-pane" id="approve">
 <?php
 
-	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='Approved'";
+	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id LEFT JOIN `plan` ON services.policy_number = plan.policy_id where services.status='Approved'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -168,7 +259,7 @@ while($row = $result->fetch_assoc())
 		echo "<tr>\n";
 		echo "    <td>".$row["id"]."</td>\n";
 		echo "    <td>".$row["policy_number"]."</td>\n";
-		echo "    <td> - </td>\n";
+		echo "    <td>".$row["plan_type"]."</td>\n";
         echo "    <td>".$row["name"]."</td>\n";		      
 		echo "    <td>".$row["birth_date"]."</td>\n";
 		echo "    <td>".$row["phone"]."</td>\n";
@@ -186,7 +277,7 @@ while($row = $result->fetch_assoc())
 <div role="tabpanel" class="tab-pane" id="decline">
 <?php
 
-	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id where services.status='Declined'";
+	$sql = "SELECT * FROM services left join `client` on services.policy_number = client.client_id LEFT JOIN `plan` ON services.policy_number = plan.policy_id where services.status='Declined'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -212,7 +303,7 @@ while($row = $result->fetch_assoc())
 		echo "<tr>\n";
 		echo "    <td>".$row["id"]."</td>\n";
 		echo "    <td>".$row["policy_number"]."</td>\n";
-		echo "    <td> - </td>\n";
+		echo "    <td>".$row["plan_type"]."</td>\n";
         echo "    <td>".$row["name"]."</td>\n";		      
 		echo "    <td>".$row["birth_date"]."</td>\n";
 		echo "    <td>".$row["phone"]."</td>\n";
