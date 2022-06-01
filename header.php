@@ -57,15 +57,15 @@
                       <a href="client.php"><i class="fa fa-users "></i>CLIENTS</a >  
                  </li> 
                  <li>
-                      <a href="agent.php"><i class="fa fa-life-saver "></i>AGENTS</a>
+                      <!-- <a href="agent.php"><i class="fa fa-life-saver "></i>AGENTS</a> -->
                             
                  </li>   
                  <li>
-                      <a href="policy.php"><i class="fa fa-pencil-square-o "></i>POLICY</a>
+                      <!-- <a href="policy.php"><i class="fa fa-pencil-square-o "></i>POLICY</a> -->
                           
                  </li>     
                  <li>
-                      <a href="nominee.php"><i class="fa fa-heart "></i>NOMINEE</a>
+                      <!-- <a href="nominee.php"><i class="fa fa-heart "></i>NOMINEE</a> -->
                             
                  </li> 
                  <li>
@@ -74,15 +74,15 @@
                  </li>    
                     
                  <li>
-                      <a href="requests.php"><i class="fa fa-envelope "></i>REQUESTS</a>
+                      <!-- <a href="requests.php"><i class="fa fa-envelope "></i>REQUESTS</a> -->
                             
                  </li>    
                  <li>
-                      <a href="search_reinment.php"><i class="fa fa-money "></i>REINSTATEMENT</a>
+                      <!-- <a href="search_reinment.php"><i class="fa fa-money "></i>REINSTATEMENT</a> -->
                             
                  </li>  
                  <li>
-                      <a href="claimClient.php"><i class="fa fa-money "></i>CLAIM</a>                            
+                      <!-- <a href="claimClient.php"><i class="fa fa-money "></i>CLAIM</a>                             -->
                  </li>  
                 </ul>
             </div>		
