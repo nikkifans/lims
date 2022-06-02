@@ -89,11 +89,11 @@ include'connection.php';
 		$Hospitalisation_due_to             = $_POST["Hospitalisation_due_to"];
 		$Date_of_Injury_Date_of_Delivery    = $_POST["Date_of_Injury/Date_of_Delivery"];
 		$Date_of_Admission                  = $_POST["Date_of_Admission"];
-		$Date_of_Discharge                  = $_POST["Date_of_Discharge"];
-		$Reported_to_Police                 = $_POST["Reported_to_Police"];
+		// $Date_of_Discharge                  = $_POST["Date_of_Discharge"];
+		// $Reported_to_Police                 = $_POST["Reported_to_Police"];
 		$Title                              = $_POST["Title"];
 		$Name                               = $_POST["Name"];
-		$Gender                             = $_POST["Gender"];
+		$Gender                             = $_POST["gender"];
         $Relationship_with_Primary_Insured  = $_POST["Relationship_with_Primary_Insured"];
 		$Occupation                         = $_POST["Occupation"];
 		$Address                            = $_POST["Address"];
@@ -101,7 +101,7 @@ include'connection.php';
 		$Email                              = $_POST["Email"];
         $policy_id                          = $_POST["policy_id"];
 
-	$sql = "INSERT INTO hospital_details (`Name_of_Hospital`, `Room_category_occupied`, `Hospitalisation_due_to`, `Date_of_Injury_Date_of_Delivery`, `Date_of_Admission`, `Date_of_Discharge`, `Reported_to_Police`, `Title`, `Name`, `Gender`, `Relationship_with_Primary_Insured`, `Occupation`, `Address`, `Phone_No`, `Email`,`policy_number`,`status`)"."VALUES('$Name_of_Hospital','$Room_category_occupied','$Hospitalisation_due_to','$Date_of_Injury_Date_of_Delivery','$Date_of_Admission','$Date_of_Discharge','$Reported_to_Police','$Title','$Name','$Gender','$Relationship_with_Primary_Insured','$Occupation','$Address','$Phone_No','$Email','$policy_id','pending')";
+	$sql = "INSERT INTO hospital_details (`Name_of_Hospital`, `Room_category_occupied`, `Hospitalisation_due_to`, `Date_of_Injury_Date_of_Delivery`, `Date_of_Admission`,`Title`, `Name`, `gender`, `Relationship_with_Primary_Insured`, `Occupation`, `Address`, `Phone_No`, `Email`,`policy_number`,`status`)"."VALUES('$Name_of_Hospital','$Room_category_occupied','$Hospitalisation_due_to','$Date_of_Injury_Date_of_Delivery','$Date_of_Admission','$Title','$Name','$Gender','$Relationship_with_Primary_Insured','$Occupation','$Address','$Phone_No','$Email','$policy_id','pending')";
 	
 	if ($conn->query($sql) === true) {
 			echo "New Member Added";
