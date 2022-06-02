@@ -114,7 +114,7 @@ tr:nth-child(even) {
 	
             <div class="navbar-header">
                 	
-                <a class="navbar-brand" href="index.php">Insurance</a>
+               <!-- <a class="navbar-brand" href="index.php">Insurance</a> -->
             </div>
 			<div class="dropdown">
 			<div class="header-left">

@@ -189,21 +189,24 @@ tr:nth-child(even) {
         </label><br>
      
         <label for="watershedField">Date of Injury/Date of Delivery*
-          <input type="text" name="Date_of_Injury/Date_of_Delivery" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
+          <br>
+          <input type="date" name="Date_of_Injury/Date_of_Delivery" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
         </label><br>
       
-      
+        <br>
+        
         <label for="watershedField">Date of Admission*
-          <input type="text" name="Date_of_Admission" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
+        <br>
+          <input type="date" name="Date_of_Admission" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
         </label><br>
       
-        <label for="watershedField">Date of Discharge*
+        <!-- <label for="watershedField">Date of Discharge
           <input type="text" name="Date_of_Discharge" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
-        </label><br>
+        </label><br> -->
       
-        <label for="watershedField">Reported to Police*
-          <input type="text" name="Reported_to_Police" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
-        </label><br>
+        <!-- <label for="watershedField">Reported to Police* -->
+          <!-- <input type="text" name="Reported_to_Police" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
+        </label><br> -->
       
 
 
@@ -215,8 +218,12 @@ tr:nth-child(even) {
                        <h3 class="page-head-line">Details of Insured Person Hospitalised
 </div>    
       
-        <label for="watershedField">Title*
-          <input type="text" name="Title" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
+<label for="watershedField">Title*
+            <br>
+          <!-- <input type="text" name="Watershed" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= 'Mandatory. Please fill-out.'" /> -->
+          <input type="radio" name="Title" value="Mr" id="Mr"/> <label class="mx-3" for="Mr">Mr</label>
+          <input type="radio" name="Title" value="Ms" id="Ms"/> <label class="mx-3" for="Ms">Ms</label>
+          <input type="radio" name="Title" value="Mrs" id="Mrs"/> <label class="mx-3" for="Mrs">Mrs</label>
         </label><br>
       
         <label for="watershedField">Name*
@@ -225,7 +232,11 @@ tr:nth-child(even) {
       
           
         <label for="watershedField">Gender*
-          <input type="text" name="Gender" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
+            <br>
+          <!-- <input type="text" name="Watershed" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= 'Mandatory. Please fill-out.'" /> -->
+          <input type="radio" name="gender" value="Male" id="Male"/> <label class="mx-3" for="Male">Male</label>
+          <input type="radio" name="gender" value="Female" id="Female"/> <label class="mx-3" for="Female">Female</label>
+          <input type="radio" name="gender" value="Others" id="Others"/> <label class="mx-3" for="Others">Others</label>
         </label><br>
       
            
@@ -242,11 +253,13 @@ tr:nth-child(even) {
         </label><br>
       
         <label for="watershedField">Phone No*
-          <input type="text" name="Phone_No" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
+        <br>
+          <input type="number" name="Phone_No" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
         </label><br>
       
         <label for="watershedField">Email*
-          <input type="text" name="Email" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
+        <br>
+          <input type="email" name="Email" required multiple placeholder="" id="watershedField" onfocus="this.placeholder= ''" onblur="this.placeholder= ''" />
         </label><br>
         <button name="submit" class="btn btn-primary ml-" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
       </form>
