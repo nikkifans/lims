@@ -237,7 +237,7 @@ tr:nth-child(even) {
 <!-- Tab 2 -->
   <div role="tabpanel" class="tab-pane" id="profile">
 		<?php
-				$sql = "SELECT * FROM plan where policy_id ='$policy_id'";
+				$sql = "SELECT * FROM plan where policy_id ='$policy_id'";        
 				$result = $conn->query($sql);
         echo "<br>";
         echo '<h2>Policy Information</h2>';
@@ -253,7 +253,7 @@ tr:nth-child(even) {
 			 
 				echo "  </tr>";
 						
-				if ($result->num_rows > 0) {
+				if ($result->num_rows > 0 && $policy_id!=="") {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
 					
