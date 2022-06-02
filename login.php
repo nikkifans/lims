@@ -28,7 +28,7 @@
 		if($password == $row["client_password"]){
 			echo "welcome you have successfully logeed in";
 			$_SESSION["username"] = $username;		
-			header("Location: policy_servicing.php");
+			header("Location: requesthome.php");
 		}
     }
 
@@ -54,6 +54,25 @@
 			header("Location: claimsHome.php");
 		}
     }
+
+    
+
+
+
+
+$sql = "SELECT `password` from hospital_login where username='$username' and type='request'";
+	$result = $conn->query($sql);        
+
+    while($row = $result->fetch_assoc()) {
+		if($password == $row["password"]){
+			echo "welcome you have successfully logeed in";
+			$_SESSION["username"] = $username;		
+			header("Location: mainpage.php");
+		}
+    }
+
+    
+
 	if(!isset($_SESSION["username"])){
 		header("Location: index.php");
 	}

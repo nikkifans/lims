@@ -111,7 +111,7 @@ include'connection.php';
         
             $sql = "UPDATE request set status = 'reject'  where request_id='$request_id'";
             if($conn->query($sql)=== true){
-                header('Location: requests.php');
+                header('Location: requests1.php');
                 // echo "<br />";
                 // echo "Go back to Requests - <a href='requests.php' class='btn'>Requests</a>";
             }

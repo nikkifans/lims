@@ -109,7 +109,7 @@ tr:nth-child(even) {
 	
             <div class="navbar-header">
                 	
-                <a class="navbar-brand" href="index.php">Insurance</a>
+                <a class="navbar-brand" href="requesthome.php">Insurance</a>
             </div>
 			<div class="dropdown">
 			<div class="header-left">
@@ -338,7 +338,7 @@ while($row = $result->fetch_assoc()) {
   echo "    <td>".$row["phone"]."</td>\n";
   $nominee_id = $row["nominee_id"];
   echo "  </tr>";
- 
+
   
 }
 }
@@ -354,7 +354,6 @@ echo "  </table>";
 $sql = "SELECT * FROM payment where client_id='$client_id'";
 $result = $conn->query($sql);
 echo "<br>\n";
-echo "<br>\n";
 echo '<b>Payments</b>';
 echo "<br>\n";
 echo "<br>\n";
@@ -365,8 +364,9 @@ echo "<table class=\"table\">\n";
   // echo "    <th>MONTH</th>\n";
   echo "    <th>START DATE</th>\n";
   echo "    <th>AMOUNT</th>\n";
-  echo "    <th>DUE</th>\n";
+  echo "    <th>EXPIRY DATE</th>\n";
   echo "    <th>FINE</th>\n";
+  echo "    <th>AGENT ID</th>\n";
   echo "  </tr>";
 
 if ($result->num_rows > 0) {
@@ -378,9 +378,10 @@ while($row = $result->fetch_assoc()) {
   // echo "    <td>".$row["month"]."</td>\n";
   echo "    <td>".$row["start_date"]."</td>\n";
   echo "    <td>".$row["amount"]."</td>\n";
-  echo "    <td>".$row["due"]."</td>\n";
+  echo "    <td>".$row["expiry_date"]."</td>\n";
   echo "    <td>".$row["fine"]."</td>\n";
-  echo "  </tr>";
+  echo "    <td>".$row["agent_id"]."</td>\n";
+  echo "  </tr>\n";
   
 }
 }
@@ -417,45 +418,82 @@ echo "</table>\n";
           <label for="Change to" id="doc-label" class="hidden">Image
           <input class="img hidden" id="doc" type="file" name="fileToUpload" id="fileToUpload"> </br>
           <!-- <input type="file" name="fileToUpload" id="fileToUpload"> -->
+          <div id="ramount" style="float: left; padding: 12px;">
+
+<!-- <label for="Enter Amount">Enter Receipt Amount in Number</label>
+<input type="text" id="ramountinput" name="enter_amount"> -->
+<?php
+
+ echo '<b><span style="color:#C04000;"><p>   EXTENSION INFORMATION:</p></span></b>';
+ echo '<span style="color:#8D918D;"><p>3 Months Silver premium @2000/-</p></span>';
+ echo '<span style="color:#8D918D;"><p>3 Months gold premium @3333/-</p></span>';
+ echo '<span style="color:#8D918D;"><p>3 Months gold premium @5000/-</p></span>';
+ ?>
+
+</div>
 
           </label>
-         <br />
-        
-			
-					<label for="Change to">Change to</label>
-					<input type="text" id="Change to" name="change_to">
-			
+          
+			<div id="change">
+      <label for="Change to">Change to</label><br>
+      
+					<input type="text" id="changeinput" name="change_to"><br><br>
+      </div>
+					        			
 					<!-- <input type="submit" value="Submit"> -->
           <input type="submit" value="Submit" name="submit">
+          <br>
         </form>
         </div>
+
+        
 </div>
 </div>
                  
-
     </div>
 	
     <!-- /. WRAPPER  -->
 
-   
   <script src="assets/js/jquery-1.10.2.js"></script>
 	<script src="assets/js/bootstrap.js"></script>
 <script>
   $("#request").on("change",function(){     
+   
     if(this.value === 'policy extension'){
       $("#doc-label").addClass("show");
       $("#doc-label").removeClass("hidden");
+      // 
       $("#doc").addClass("show");
       $("#doc").removeClass("hidden");
       $("#doc").attr("required");
+      // hide request amount
+      $("#change").addClass("hidden");
+      $("#change").removeClass("show");
+      $("#changeinput").removeAttr("required");
+      // show change to
+      $("#ramount").addClass("show");
+      $("#ramount").removeClass("hidden");
+      $("#ramountinput").attr("required");
+      
     }else{
       $("#doc-label").addClass("hidden");
       $("#doc-label").removeClass("show");
+      //
       $("#doc").addClass("hidden");
       $("#doc").removeClass("show");
       $("#doc").removeAttr("required");
+      
+      // hide request amount
+      $("#change").addClass("show");
+      $("#change").removeClass("hidden");
+      $("#changeinput").attr("required");
+      // show change to
+      $("#ramount").addClass("hidden");
+      $("#ramount").removeClass("show");
+      $("#ramountinput").removeAttr("required");
     }
-  })
+  }
+  )
 </script>
 
 </body>

@@ -109,7 +109,7 @@ tr:nth-child(even) {
 	
             <div class="navbar-header">
                 	
-                <a class="navbar-brand" href="requesthome.php">Insurance</a>
+                <a class="navbar-brand" href="reinstatement1.php">Insurance</a>
             </div>
 			<div class="dropdown">
 			<div class="header-left">
@@ -198,13 +198,12 @@ echo "<table class=\"table\">\n";
   echo "    <th>START DATE</th>\n";
   echo "    <th>TOTAL AMOUNT</th>\n";
   echo "    <th>EXPIRY DATE</th>\n";
-  echo "    <th>FINE</th>\n";
+  // echo "    <th>FINE</th>\n";
   echo "    <th>DUE AMOUNT</th>\n";
 
   echo "  </tr>";
 
-if ($result->num_rows > 0) 
-{
+if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
 
     $date=date_create($row["start_date"]);
@@ -220,9 +219,9 @@ while($row = $result->fetch_assoc()) {
   echo "    <td>".$row["total_amount"]."</td>\n";
   echo "    <td>".$row["start_date"]."</td>\n";
   echo "    <td>".$row["amount"]."</td>\n";
-  // echo "    <td>".$row["expiry_date"]."</td>\n";
-  echo "    <td>".$row["fine"]."</td>\n";
-  echo "    <td>".$expiry_date."</td>\n";
+  // echo "    <td>".$expiry_date."</td>\n";
+   echo "    <td>".$row["expiry_date"]."</td>\n";
+  // echo "    <td>".$row["fine"]."</td>\n";
   echo "    <td>".$row["due_amount"]."</td>\n";
   echo "  </tr>";
   
@@ -259,8 +258,7 @@ echo "</table>\n";
             ?>
 <!--   todo   here           -->
             <?php
-            //$sql = "SELECT  DATE_ADD(`start_date`, INTERVAL 90 DAY) AS due_date,amount AS due_amount FROM payment WHERE  client_id = '$client_id' order by `start_date` DESC LIMIT 1";
-            $sql = "SELECT payment.client_id, DATE_ADD(payment.start_date, INTERVAL 90 DAY) AS due_date,client.due_amount AS due_amount FROM payment LEFT JOIN client ON client.client_id = payment.client_id WHERE  payment.client_id = '$client_id' order by payment.start_date DESC LIMIT 1";
+            $sql = "SELECT  DATE_ADD(`start_date`, INTERVAL 90 DAY) AS due_date,amount AS due_amount FROM payment WHERE  client_id = '$client_id' order by `start_date` DESC LIMIT 1";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
