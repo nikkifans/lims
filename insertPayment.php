@@ -86,12 +86,12 @@ include'connection.php';
 		$client_id      = $_POST["client_id"];
 		$month          = $_POST["month"];
 		$amount         = $_POST["amount"];
-		$fine           = $_POST["fine"];
+		$Branch           = $_POST["Branch"];
 		$due            = $_POST["due"];
 		$agent_id       = $_POST["agent_id"];
 		
 		
-	$sql = "INSERT INTO payment (`recipt_no`, `client_id`, `start_date`, `amount`, `fine`, `expiry_date`, `agent_id`)"."VALUES('$recipt_no', '$client_id', '$month', '$amount', '$fine', '$due','$agent_id')";
+	$sql = "INSERT INTO payment (`recipt_no`, `client_id`, `start_date`, `amount`, `Branch`, `expiry_date`, `agent_id`)"."VALUES('$recipt_no', '$client_id', '$month', '$amount', '$Branch', '$due','$agent_id')";
 	
 	if ($conn->query($sql) === true) {
 			echo "New Payment ADDED";
