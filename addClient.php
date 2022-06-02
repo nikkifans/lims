@@ -84,9 +84,9 @@ Gender*          <input type="text" name="sex" required><br><br>
 </div>
 Marital Status*  <input type="text" name="maritial_status" required><br>
 Phone*           <input type="text" name="phone" required><br>
-Address*         <input type="text" name="address" required><br>
+Current Address*         <input type="text" name="address" required><br>
 <!-- Policy ID:       <input type="text" name="policy_id" required><br> -->
-Agent ID:        <input type="text" name="agent_id" value="<?php echo $_SESSION["username"]; ?>" required><br>
+Permanent Address:        <input type="text" name="p_address"  required><br>
 
 <h3>Nominee Information </h3>
 

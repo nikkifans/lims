@@ -32,17 +32,23 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    border:none;
 }
 
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+    border:none;
+    padding:8px 0 !important;
 }
-
-tr:nth-child(even) {
+tr{
+    margin:8px !important;
+    border:none;
+}
+/* tr:nth-child(even) {
     background-color: #dddddd;
-}
+} */
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -79,10 +85,33 @@ $client_id       = $_GET["client_id"];
 
 Recipt No:     <input type="text" name="recipt_no" value="<?php echo"$uniqueId"; ?>" required><br>
 Client Id:     <input type="text" name="client_id" value="<?php echo"$client_id"; ?>" required><br>
-Start Date:         <input type="date" name="month" required><br>
-Expiry Date:           <input type="date" name="due" required><br>
-Amount:        <input type="number" name="amount" required><br>
-Branch:          <input type="number" name="Branch" required><br>
+
+         
+       
+        
+          
+<table style="border:0px !important;width: 400px;px !important;">
+    <tr>
+        <td>
+        Start Date:
+        </td>
+        <td>
+        <input type="date" name="month" style ="width:177px;" required><br>
+        </td>
+    </tr>
+    <tr>
+        <td>Expiry Date:</td>
+        <td>   <input type="date" name="due" style ="width:177px" required><br></td>
+    </tr>
+    <tr>
+        <td>Amount:</td>
+        <td><input type="number" name="amount" required><br></td>
+    </tr>
+    <tr>
+        <td>Branch:</td>
+        <td><input type="number" name="Branch" required><br></td>
+    </tr>
+</table>
 Agent Id:      <input type="text" name="agent_id" value="<?php echo $_SESSION["username"]; ?>" required><br>
 
 <input type="submit">

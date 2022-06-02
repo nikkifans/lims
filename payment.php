@@ -84,7 +84,7 @@ tr:nth-child(even) {
 <?php
 
 	
-	$sql = "SELECT recipt_no,client_id,start_date,amount,expiry_date,fine, agent_id FROM payment";
+	$sql = "SELECT recipt_no,client_id,start_date,amount,expiry_date,Branch, agent_id FROM payment";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -94,7 +94,7 @@ tr:nth-child(even) {
     echo "    <th>START DATE</th>\n";
     echo "    <th>AMOUNT</th>\n";
 	echo "    <th>EXPIRY DATE</th>\n";
-    echo "    <th>FINE</th>\n";
+    echo "    <th>Branch</th>\n";
 	echo "    <th>UPDATE</th>\n";
     echo "  </tr>";
 	
@@ -108,7 +108,7 @@ tr:nth-child(even) {
 		echo "    <td>".$row["start_date"]."</td>\n";
 		echo "    <td>".$row["amount"]."</td>\n";
 		echo "    <td>".$row["expiry_date"]."</td>\n";
-		echo "    <td>".$row["fine"]."</td>\n";
+		echo "    <td>".$row["Branch"]."</td>\n";
 		
 		if($row["agent_id"]== $username || "ahmed" == $username){
 			echo "<td>"."<a href='editPayment.php?recipt_no=".$row["recipt_no"]. "'>Edit</a>"."</td>\n";

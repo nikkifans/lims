@@ -90,7 +90,7 @@ tr:nth-child(even) {
 		$phone           = $_POST["phone"];
 		$address         = $_POST["address"];
 		// $policy_id       = $_POST["policy_id"];
-		$agent_id        = $_POST["agent_id"];
+		$agent_id        = $_POST["p_address"];
 		
 		
 		

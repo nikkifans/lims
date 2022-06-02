@@ -299,17 +299,19 @@ tr:nth-child(even) {
                 echo "</tr>\n";
                 echo "</thead>\n";
                 echo "<tbody>\n";
-                while($row = $result->fetch_assoc()) {                   
-                    $services = unserialize($row["services"]);
-                   
+                while($row = $result->fetch_assoc()) {  
+
+                  $services = unserialize($row["services"]);
+                   if($services !== false){
                     foreach($services as $key => $service){
-                        echo "<tr>\n";
-                        if(!in_array($key,$array_ignore_keys)){
-                            echo "<td>".$key."</td>";
-                            echo "<td class='text-right px-3'>".$service."</td>";                                                          
-                        }     
-                        echo "</tr>\n";                                          
-                    }
+                      echo "<tr>\n";
+                      if(!in_array($key,$array_ignore_keys)){
+                          echo "<td>".$key."</td>";
+                          echo "<td class='text-right px-3'>".$service."</td>";                                                          
+                      }     
+                      echo "</tr>\n";                                          
+                  }
+                  }                  
                     echo "<tfoot>\n";
                     echo "<tr>\n";
                     echo "<th>Total</th>\n";
