@@ -103,7 +103,8 @@ tr:nth-child(even) {
                         <!-- <-- display main menu--> -->
 
 
-                    </li>    
+                    </li> 
+                       
                     
                      <!-- <li>
                   <a href="client.php"><i class="fa fa-users "></i>CLIENTS</a >  
@@ -152,7 +153,7 @@ tr:nth-child(even) {
 						</h1>
 						
 						<div class= "searchBar">
-		  <form action="reinstatement.php" method="post">
+		  <form action="reinstatement2.php" method="post">
           <input type="text" name="client_id"><br>
           <input class="searchBtn" type="submit" value="SEARCH" >
 		  </br>

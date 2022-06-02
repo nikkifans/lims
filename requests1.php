@@ -204,7 +204,7 @@ include'connection.php';
 
 		echo "    <td>".$row["request_data"]."</td>\n";
         echo "    <td>".$row["status"]."</td>\n";
-        echo "    <td>"."<a href='clientStatus.php?client_id=".$row["policy_no"]. "'>Client Status</a>"."</td>\n";
+        echo "    <td>"."<a href='clientStatus1.php?client_id=".$row["policy_no"]. "'>Client Status</a>"."</td>\n";
 //        echo $row['image'];
         // echo "    <td>".$row["image"]."</td>\n";
 //        echo $row["request_type"];

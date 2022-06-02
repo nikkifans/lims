@@ -1,3 +1,19 @@
+<?php
+	session_start();
+	include'connection.php';
+	$username = $_SESSION["username"];
+
+// 	$sql = "SELECT agent_id FROM agent WHERE agent_id = '$username'";
+// 	$result = $conn->query($sql);
+// 	if ($result->num_rows > 0) {
+     
+//     }
+//     else {
+// 	header("Location: clientHome.php");
+    
+//    }	
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,9 +70,9 @@ tr:nth-child(even) {
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<?php  
+<!--  
 $username = $_SESSION["username"];
-?>
+ -->
 <body>
 <div id="wrapper">
     <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
@@ -83,9 +99,9 @@ $username = $_SESSION["username"];
                         <div class="inner-text">
                             <?php
                                 if(!isset($_SESSION["username"])){
-                                    header("Location: index.php");
+                                    // header("Location: index.php");
                                 }else {
-                                    echo "welcome, ".$_SESSION["username"];
+                                    // echo "welcome, ".$_SESSION["username"];
                                 }
                             ?>
                         <br />
