@@ -493,6 +493,7 @@ function removeRequired(elementId){
     }
     
     else if(this.value === 'address'){
+      showElement('change');
       showElement('imgUpload');
       addRequired('fileToUpload');
       hideElement('extension');

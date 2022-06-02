@@ -126,13 +126,13 @@ if(!empty($_FILES["fileToUpload"]["name"] && !empty($_FILES["fileToUpload"]["tmp
                 echo "Sorry, there was an error uploading your file.";
             }			 
 		}
+        $sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$target_path2')";
 }
 else{
     $uploadedImage ='';
- 
+    $sql = "INSERT INTO request "."(request_type,request_data,status,policy_no)"." VALUES('$request', '$change_to','$status','$policy_no')";
 }
- 
-$sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image)"." VALUES('$request', '$change_to','$status','$policy_no','$target_path2')";
+
 	
 	if ($conn->query($sql) === true) {
         echo '</br>';echo "New Request ADDED";  echo '</br>';
@@ -143,10 +143,7 @@ $sql = "INSERT INTO request "."(request_type,request_data,status,policy_no,image
 		}
 	
 	
-?>
-
-
-			
+?>		
 
                 </div>
 
