@@ -82,7 +82,7 @@ Client Id:     <input type="text" name="client_id" value="<?php echo"$client_id"
 Start Date:         <input type="date" name="month" required><br>
 Expiry Date:           <input type="date" name="due" required><br>
 Amount:        <input type="number" name="amount" required><br>
-Fine:          <input type="number" name="fine" required><br>
+Branch:          <input type="number" name="Branch" required><br>
 Agent Id:      <input type="text" name="agent_id" value="<?php echo $_SESSION["username"]; ?>" required><br>
 
 <input type="submit">
