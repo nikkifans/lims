@@ -73,17 +73,37 @@ $uniqueId2 = time().'-'.mt_rand();
                                     
 
 <form action="insertClient2.php" method="post" enctype="multipart/form-data">
+<!-- <div class="form-group col-md-4">
+    <label for="exampleInputEmail1">Policy ID*</label>
+    <input type="text" name="client_id" value="<?php echo"$uniqueId"; ?>" required><br>
+</div> -->
+
 Policy ID*       <input type="text" name="client_id" value="<?php echo"$uniqueId"; ?>" required><br>
 Client Password* <input type="text" name="client_password" required><br>
 Name*            <input type="text" name="name" required><br>
 Upload Document*		     <input class="img" type="file" name="fileToUpload"/ required> </br>
-Gender*          <input type="text" name="sex" required><br><br>
+<!-- Gender*          <input type="text" name="sex" required><br><br> -->
+Gender*
+<select name="sex" id="client_sex">
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="other">Other</option>
+</select>
+<br /><br />
 <div class="row">
     <div class="col-md-3"> Birth Date*    <input type="Date" name="birth_date" required><br></div>
     <div class="col-md-3"> National ID*   <input type="number" name="nid" required><br></div>
 </div>
-Marital Status*  <input type="text" name="maritial_status" required><br>
-Phone*           <input type="text" name="phone" required><br>
+<br />
+Marital Status* 
+<select name="maritial_status" id="client_maritial_status">
+  <option value="Single">Single</option>
+  <option value="Married">Married</option>
+  <option value="Divorced">Divorced</option>
+  <option value="Divorced">Widowed</option>
+</select>
+<br /><br />
+Phone*           <input type="number" name="phone" required><br><br />
 Current Address*         <input type="text" name="address" required><br>
 <!-- Policy ID:       <input type="text" name="policy_id" required><br> -->
 Permanent Address:        <input type="text" name="p_address"  required><br>
@@ -92,13 +112,31 @@ Permanent Address:        <input type="text" name="p_address"  required><br>
 
 Nominee ID*    <input type="text" name="nominee_id" value="<?php echo"$uniqueId2"; ?>" required> <br>
 Name*          <input type="text" name="nominee_name" required><br>
-Gender*        <input type="text" name="nominee_sex" required><br>
+<!-- Gender*        <input type="text" name="nominee_sex" required><br> -->
+Gender*
+<select name="nominee_sex" id="nominee_sex">
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+  <option value="other">Other</option>
+</select>
+<br /><br />
 <div class="row">
     <div class="col-md-3"> Birth Date*    <input type="Date" name="nominee_birth_date" required><br></div>
     <div class="col-md-3"> National ID*   <input type="number" name="nominee_nid" required><br></div>
 </div>
-
-Relationship*  <input type="text" name="nominee_relationship" required><br>
+<br />
+<!-- Relationship*  <input type="text" name="nominee_relationship" required><br> -->
+Relationship*
+<select name="nominee_relationship" id="nominee_relationship">
+<option value="Spouse">Spouse</option>
+		<option value="Son">Son</option>
+		<option value="Daughter">Daughter</option>
+		<option value="Brother">Brother</option>
+		<option value="Sister">Sister</option>
+		<option value="Mother">Mother</option>
+		<option value="Father">Father</option>
+		
+</select>
 Priority*      <input type="text" name="priority" required><br>
 Phone*         <input type="number" name="nominee_phone" required><br><br>
 

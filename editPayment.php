@@ -115,8 +115,8 @@ include'connection.php';
 		echo "<input type=\"text\" recipt_no=\"fname\" name=\"amount\" placeholder=\"Amount..\" value=\"$row[amount]\">";
 		echo "<label for=\"fname\">DUE</label>";
 		echo "<input type=\"text\" recipt_no=\"fname\" name=\"due\" placeholder=\"Your Due..\" value=\"$row[due]\">";
-		echo "<label for=\"fname\">FINE</label>";
-		echo "<input type=\"text\" recipt_no=\"fname\" name=\"fine\" placeholder=\"Fine..\" value=\"$row[fine]\">";
+		echo "<label for=\"fname\">Branch</label>";
+		echo "<input type=\"text\" recipt_no=\"fname\" name=\"Branch\" placeholder=\"Branch..\" value=\"$row[Branch]\">";
 		echo "<label for=\"fname\">AGENT ID</label>";
 		echo "<input type=\"text\" recipt_no=\"fname\" name=\"agent_id\" placeholder=\"Agent Id..\" value=\"$row[agent_id]\">";
 		
