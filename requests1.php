@@ -213,6 +213,11 @@ include'connection.php';
             echo "<td>"."<a href='download.php?path=".$row['image']."'>View</a>"."</td>\n";
             //  echo "<td>"."<a href= 'C:\xampp\htdocs\lims\reciptes\payment-receipt-template-05.jpg'".$row['image']."'>Download</a>"."</td>\n";
         }
+        else if ($row["request_type"] == 'address')
+        {
+            echo "<td>"."<a href='download.php?path=".$row['image']."'>View</a>"."</td>\n";
+            //  echo "<td>"."<a href= 'C:\xampp\htdocs\lims\reciptes\payment-receipt-template-05.jpg'".$row['image']."'>Download</a>"."</td>\n";
+        }
         else
         {
 
@@ -220,6 +225,8 @@ include'connection.php';
         }
 
 //        <a href="/images/myw3schoolsimage.jpg" download>
+
+
 
 
         echo "<td>"."<a href='updateRequest.php?request_id=".$row["request_id"]."&client_id=".$row["policy_no"]. "'>Update</a>"."</td>\n";
