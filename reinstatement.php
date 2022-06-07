@@ -182,8 +182,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $client_id = $_POST["client_id"];
   
   }
-  $sql = "SELECT payment.recipt_no,payment.client_id,payment.start_date,payment.amount,payment.expiry_date,payment.fine, payment.agent_id,plan.total_amount,client.due_amount FROM `payment` left JOIN plan on payment.client_id = plan.policy_id LEFT JOIN `client` ON payment.client_id = client.client_id where payment.client_id='$client_id'";
-
+  $sql = "SELECT payment.recipt_no,payment.client_id,payment.start_date,payment.amount,payment.expiry_date,payment.fine, payment.agent_id,plan.total_amount,client.due_amount,plan.sum_insured FROM `payment` left JOIN plan on payment.client_id = plan.policy_id LEFT JOIN `client` ON payment.client_id = client.client_id where payment.client_id='$client_id'";
 $result = $conn->query($sql);
 echo "<br>\n";
 echo "<br>\n";
@@ -194,7 +193,7 @@ echo "<table class=\"table\">\n";
   echo "  <tr>\n";
   echo "    <th>RECIPT NO</th>\n";
   echo "    <th>CLIENT ID</th>\n";
-  echo "    <th>MONTHLY PAYMENT</th>\n";
+  echo "    <th>ANNUAL PAYMENT</th>\n";
   echo "    <th>START DATE</th>\n";
   echo "    <th>TOTAL AMOUNT</th>\n";
   echo "    <th>EXPIRY DATE</th>\n";
@@ -219,11 +218,11 @@ while($row = $result->fetch_assoc()) {
   echo "    <td>".$row["client_id"]."</td>\n";
   echo "    <td>".$row["total_amount"]."</td>\n";
   echo "    <td>".$row["start_date"]."</td>\n";
-  echo "    <td>".$row["amount"]."</td>\n";
-  // echo "    <td>".$row["expiry_date"]."</td>\n";
+  echo "    <td>".$row["sum_insured"]."</td>\n";
+  echo "    <td>".$row["expiry_date"]."</td>\n";
   echo "    <td>".$row["fine"]."</td>\n";
-  echo "    <td>".$expiry_date."</td>\n";
-  echo "    <td>".$row["due_amount"]."</td>\n";
+  // echo "    <td>".$expiry_date."</td>\n";
+  echo "    <td>".$row["total_amount"]."</td>\n";
   echo "  </tr>";
   
 }
@@ -259,19 +258,20 @@ echo "</table>\n";
             ?>
 <!--   todo   here           -->
             <?php
+             $sql = "SELECT payment.expiry_date,plan.total_amount FROM `payment` left JOIN plan on payment.client_id = plan.policy_id LEFT JOIN `client` ON payment.client_id = client.client_id where payment.client_id='$client_id'";
             //$sql = "SELECT  DATE_ADD(`start_date`, INTERVAL 90 DAY) AS due_date,amount AS due_amount FROM payment WHERE  client_id = '$client_id' order by `start_date` DESC LIMIT 1";
-            $sql = "SELECT payment.client_id, DATE_ADD(payment.start_date, INTERVAL 90 DAY) AS due_date,client.due_amount AS due_amount FROM payment LEFT JOIN client ON client.client_id = payment.client_id WHERE  payment.client_id = '$client_id' order by payment.start_date DESC LIMIT 1";
+//             $sql = "SELECT payment.client_id, DATE_ADD(payment.start_date, INTERVAL 90 DAY) AS due_date,client.due_amount AS due_amount FROM payment LEFT JOIN client ON client.client_id = payment.client_id WHERE  payment.client_id = '$client_id' order by payment.start_date DESC LIMIT 1";
             $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
+            // if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $due_date =  $row['due_date'];
-                $due_amount = $row['due_amount'];
+                $due_date =  $row['expiry_date'];
+                $due_amount = $row['total_amount'];
             
-//
-            }else{
-              $due_date =  "NA";
-              $due_amount = "NA";
-            }
+// //
+//             }else{
+//               $due_date =  "NA";
+//               $due_amount = "NA";
+//             }
 
             ?>
 

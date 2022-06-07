@@ -132,7 +132,8 @@ if(isset($_GET['client_id'])){
       <select class="custom-select" name="adults" id="adults">
         <option value="0">0</option> 
         <option value="1">1</option>
-        <option value="2">2</option>         
+        <option value="2">2</option> 
+        <option value="3">3</option>        
       </select>    
 </div>
 <div class="col-md-2">
@@ -158,7 +159,7 @@ if(isset($_GET['client_id'])){
                             <ul>
                                 <li>Hospital Daily cash:₹ 200</li>
                                 <li>Claim upto - 60%</li>
-                                <li>Vaccination benefit: NA</li>
+                                <li>Vaccination benefit:upto ₹2000 </li>
                             </ul>
                             <div class="plan-wrapper">
                                 <a href="#" class="mybtn text-center btn btn-primary">Select This Plan</a>
@@ -175,7 +176,7 @@ if(isset($_GET['client_id'])){
                                 <ul>
                                     <li>Hospital Daily cash:₹ 500</li>
                                     <li>Claim upto - 80%</li>
-                                    <li>Vacation benefit:Upto ₹5k</li>
+                                    <li>Vaccination benefit:Upto ₹5000</li>
                                 </ul>
                                 <div class="plan-wrapper">
                                     <a href="#" class="mybtn text-center btn btn-primary">Select This Plan</a>
@@ -191,7 +192,7 @@ if(isset($_GET['client_id'])){
                                 <ul>
                                     <li>Hospital Daily cash:₹ 1000</li>
                                     <li>Claim upto - 100%</li>
-                                    <li>Vacation benefit:Upto ₹8k</li>
+                                    <li>Vaccination benefit:Upto ₹8000</li>
                                 </ul>
                                 <div class="plan-wrapper">
                                     <a href="#" class="mybtn text-center btn btn-primary">Select This Plan</a>
@@ -213,7 +214,7 @@ if(isset($_GET['client_id'])){
                                 <h2 class="text-warning">₹188</h2>
                                 <hr>
                                 <ul>
-                                    <li><storng>20</strong> visit cash</li>
+                                    <li><storng>2000 </strong> visit cash</li>
                                 </ul>
                                 <div class="plan-wrapper">
                                     <a href="#" class="mybtn text-center btn btn-warning">Choose Plan</a>
@@ -226,7 +227,7 @@ if(isset($_GET['client_id'])){
                             <h2 class="text-warning">₹149</h2>
                             <hr>
                             <ul>
-                                <li><storng>5</strong> visits</li>
+                                <li><storng>500</strong> visit cash</li>
                                 <li><storng>2</strong> Ambulance Cover</li>                                                                 
                             </ul>
                             <div class="plan-wrapper">

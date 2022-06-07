@@ -237,6 +237,8 @@ include'connection.php';
                     break;
                 case 'policy extension':
                         $sql.="client SET shared_location = '$requestData'";
+                        $sql2 = 'UPDATE payment SET expiry_date = DATE_ADD(expiry_date, INTERVAL 1 YEAR)';
+                        $conn->query($sql2);
                         break;
         }
 

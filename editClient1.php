@@ -114,7 +114,7 @@ tr:nth-child(even) {
 		$images = $row["image"];
 		
 ?>
-<!-- <img class="profile-user-img img-responsive"  width="200px" height="200px" src="<?php echo "../project/uploads/".$images ?>" alt="User profile picture"> -->
+<img class="profile-user-img img-responsive"  width="200px" height="200px" src="<?php echo "../project/uploads/".$images ?>" alt="User profile picture">
 
 <form action="updateClient.php" method="post" enctype="multipart/form-data">
 <input type="file" name="fileToUpload"><br>

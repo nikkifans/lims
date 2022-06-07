@@ -84,7 +84,7 @@ $username = $_SESSION["username"];
 	while($row = $result->fetch_assoc()) {
 		$images = $row["image"];
 ?>
-			<img class="profile-user-img img-responsive"  width="200px" height="200px" src="<?php echo "../project/uploads/".$images ?>" alt="Client has no profile picture">
+			<!-- <img class="profile-user-img img-responsive"  width="200px" height="200px" src="<?php echo "../project/uploads/".$images ?>" alt="Client has no profile picture"> -->
 <?php
 		echo "<label for=\"fname\">CLIENT ID</label>";
 	    echo "<input disabled type=\"text\" client_id=\"fname\" name=\"client_id\" placeholder=\"clients id..\" value=\"$row[client_id]\">";

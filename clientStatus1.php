@@ -196,10 +196,10 @@ $username = $_SESSION["username"];
 		echo "<label for=\"fname\">POLICY ID</label>";
 		echo "<input disabled type=\"text\" client_id=\"fname\" name=\"policy_id\" placeholder=\"policy id..\" value=\"$row[client_id]\">";
 		$policy_id = $row["client_id"];
-		$c_id      = $row["client_id"];
-		$a_id  = $row["agent_id"];
+		$client_id      = $row["client_id"];
+		$agent_id  = $row["agent_id"];
 		$agent_id = $row["agent_id"];
-		echo "<a href='editClient.php?client_id=".$c_id."'>Edit Client</a>\n";
+		echo "<a href='editClient.php?client_id=".$client_id."'>Edit Client</a>\n";
     }
 		echo "<br>\n";
 		
@@ -246,7 +246,7 @@ echo '</div>';
 	echo "<br>\n";
 	echo "<br>\n";
 	echo '<b>Policy Information</b>';	            //   PRINTS AGEENTS INFO
-	$sql = "SELECT * FROM agent where agent_id='$a_id'";
+	$sql = "SELECT * FROM agent where agent_id='$agent_id'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -273,7 +273,7 @@ echo '</div>';
 	echo "</br>\n";
 	echo '<b>Agent</b>';
 	             // prints nominee infos 
-	$sql = "SELECT * FROM nominee where client_id='$c_id'";
+	$sql = "SELECT * FROM nominee where client_id='$client_id'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -320,12 +320,12 @@ echo '</div>';
 	if($agent_id== $username || "ahmed" == $username){
 			echo "<a href='addNominee.php?client_id=".$c_id. "'>Add Nominee</a>";
 		}else {
-			echo "<a class=\"dis\" href='addNominee.php?client_id=".$c_id. "'>Add nominee</a>";
+			echo "<a class=\"dis\" href='addNominee.php?client_id=".$client_id. "'>Add nominee</a>";
 		}
 	
 		// plan type
 		 
-	$sql = "SELECT * FROM plan where policy_id='$c_id'";
+	$sql = "SELECT * FROM plan where policy_id='$client_id'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -382,7 +382,7 @@ echo '</div>';
 	
 	
                        //prints payments 
-	$sql = "SELECT * FROM payment where client_id='$c_id'";
+	$sql = "SELECT * FROM payment where client_id='$client_id'";
 	$result = $conn->query($sql);
 	
 	echo "<table class=\"table\">\n";
@@ -397,7 +397,7 @@ echo '</div>';
     echo "  </tr>";
 	echo "<br>\n";
 	
-	echo '<b>Payments</b>';  echo '&nbsp';echo '&nbsp';echo '&nbsp'; echo "<a href='addPayment.php?client_id=".$c_id."'>Add Payment</a>";
+	echo '<b>Payments</b>';  echo '&nbsp';echo '&nbsp';echo '&nbsp'; echo "<a href='addPayment.php?client_id=".$client_id."'>Add Payment</a>";
 	if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
 		

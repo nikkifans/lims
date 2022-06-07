@@ -3,7 +3,7 @@
 <head>
 <?php
 	session_start();
-	include'connection.php';
+	include 'connection.php';
 	$policy_Number;
 	$username = $_SESSION["username"];
 ?>
@@ -110,6 +110,7 @@ tr:nth-child(even) {
             <div class="navbar-header">
                 	
                 <a class="navbar-brand" href="requesthome.php">Insurance</a>
+              
             </div>
 			<div class="dropdown">
 			<div class="header-left">
@@ -123,7 +124,7 @@ tr:nth-child(even) {
 			
 			<div></div>
 			
-                 <a href="<?php echo "logout.php" ?>" class="btn btn-danger" title="Logout">Logout</a>
+                 <a href="logout.php" class="btn btn-danger" title="Logout">Logout</a>
 
             </div>
         </nav>
@@ -162,6 +163,7 @@ tr:nth-child(even) {
 		    <div class="row">
         <div class="col-md-8">
         <h1 class="page-head-line">Policy Details</h1>
+        
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Personal Info</a></li>
@@ -354,7 +356,8 @@ echo "  </table>";
 <!-- Tab 5-->
   <div role="tabpanel" class="tab-pane" id="tab5">
 <?php
-$sql = "SELECT * FROM payment where client_id='$client_id'";
+// $sql = "SELECT * FROM payment where client_id='$client_id'";
+$sql = "SELECT payment.recipt_no,payment.client_id,payment.start_date,payment.amount,payment.expiry_date, payment.agent_id,plan.sum_insured FROM `payment` left JOIN plan on payment.client_id = plan.policy_id LEFT JOIN `client` ON payment.client_id = client.client_id where payment.client_id='$client_id'";
 $result = $conn->query($sql);
 echo "<br>\n";
 echo '<b>Payments</b>';
@@ -366,7 +369,7 @@ echo "<table class=\"table\">\n";
   echo "    <th>CLIENT ID</th>\n";
   // echo "    <th>MONTH</th>\n";
   echo "    <th>START DATE</th>\n";
-  echo "    <th>AMOUNT</th>\n";
+  echo "    <th>TOTAL AMOUNT</th>\n";
   echo "    <th>EXPIRY DATE</th>\n";
   // echo "    <th>FINE</th>\n";
   echo "    <th>AGENT ID</th>\n";
@@ -380,7 +383,7 @@ while($row = $result->fetch_assoc()) {
   echo "    <td>".$row["client_id"]."</td>\n";
   // echo "    <td>".$row["month"]."</td>\n";
   echo "    <td>".$row["start_date"]."</td>\n";
-  echo "    <td>".$row["amount"]."</td>\n";
+  echo "    <td>".$row["sum_insured"]."</td>\n";
   echo "    <td>".$row["expiry_date"]."</td>\n";
   // echo "    <td>".$row["fine"]."</td>\n";
   echo "    <td>".$row["agent_id"]."</td>\n";
@@ -414,7 +417,7 @@ echo "</table>\n";
 						<option value="nominee priority">Nominee Priority</option>
 						<option value="nominee phone">Nominee Phone</option>
             <!-- <option value="nominee aadhar">Nominee Aadhar</option> -->
-            <option value="policy extension">Policy Extension(Please Enter No. of months below)</option>
+            <option value="policy extension">Policy Extension(Annual Premium)</option>
 					</select>
           <br />
           <br />
