@@ -39,7 +39,7 @@
 		if($password == $row["password"]){
 			echo "welcome you have successfully logeed in";
 			$_SESSION["username"] = $username;		
-			header("Location: clientHome.php");
+			header("Location: homeclaim.php");
 		}
     }
 	
