@@ -210,7 +210,7 @@ tr:nth-child(even) {
 		echo "    <td>".$row["phone"]."</td>\n";
         echo "    <td>".$row["address"]."</td>\n"; 
         echo "    <td><strong class='text-capitalize'>".$row["status"]."</strong></td>\n";                        
-		echo "    <td>"."<a href='claimDetails.php?client_id=".$row["client_id"]. "'>View</a>"."</td>\n";
+		echo "    <td>"."<a href='approvereason.php?client_id=".$row["client_id"]. "'>View</a>"."</td>\n";
         echo "  </tr>";
          
 	 }
